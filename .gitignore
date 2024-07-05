@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+server/node_modules/
+server/package-lock.json
+server/config/config.env
