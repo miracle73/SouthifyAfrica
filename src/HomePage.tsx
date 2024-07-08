@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
 import { IoIosArrowDown } from "react-icons/io";
@@ -56,9 +57,9 @@ const HomePage = () => {
               <p className='text-black text-[16px] font-[Inter] font-semibold'>Change Language</p>
               <IoIosArrowDown className='mr-4' onClick={() => { setArrow(!arrow) }} />
             </div>
-            <div className='bg-[#2F6FED] px-4 py-2  rounded-[12px]'>
+            <Link to="/waitlist" className='bg-[#2F6FED] px-4 py-2  rounded-[12px]'>
               <p className='text-white font-[Inter] text-[14px] max-md:text-[11px] font-[600] text-center'>Join Waitlist</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -82,9 +83,9 @@ const HomePage = () => {
         <div className='flex flex-col justify-center p-4'>
           <p className='text-black font-[Inter] text-[64px] max-xl:text-[50px] max-lg:text-[38px] max-lg:mb-5 max-md:text-[42px] font-[700] '>{pidgin ? 'Find Your Peace for Here' : 'Find Your Inner Peace'}</p>
           <p className='text-[#160F0A] font-[Satoshi] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[18px] font-[400]'>{pidgin ? 'Welcome to Soothify, where we dey help you find peace, balance, and jolly. Soothify dey here to give you all the tools and support wey you need to live better' : 'Welcome to Soothify! Your journey to peace and wellness starts here. We provide the tools and support you need for a happy and balanced life.'}</p>
-          <div className='bg-[#2F6FED] w-fit px-4 py-2  rounded-[12px] mt-10 max-lg:mt-7 max-md:mt-5'>
+          <Link to="/waitlist" className='bg-[#2F6FED] w-fit px-4 py-2  rounded-[12px] mt-10 max-lg:mt-7 max-md:mt-5'>
             <p className='text-white font-[Inter] text-[21px] max-xl:text-[18px] max-lg:text-[14px] max-md:text-[16px] font-[600] text-center'>Join Waitlist</p>
-          </div>
+          </Link>
         </div>
         <img src={firstBackground} className='max-md:pt-10 max-xl:w-1/2 max-md:w-full' />
       </div>
