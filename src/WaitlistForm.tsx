@@ -12,7 +12,13 @@ import SouthifyLogo from './assets/image/Soothify2.png'
 
 
 const WaitlistForm = () => {
-
+    const handleSubmit = (event: any) => {
+        event.preventDefault();
+        console.log(data);
+    
+    
+    };
+    const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
     return (
         <div className={`min-h-screen w-full  pt-5 flex flex-col justify-between`}>
             <div>
@@ -25,18 +31,238 @@ const WaitlistForm = () => {
                     </div>
                 </div>
             </div>
-            <p className='mx-10  max-md:mx-5 text-[#000000] font-[Inter] text-[65px] max-xl:text-[60px] max-lg:text-[50px] max-md:text-[40px] font-[700] text-center'>Join waitlist</p>
-            <form className='mx-10  max-md:mx-5 w-[70%]'>
-                <div>
-                    {/* value={firstName} onChange={(e) => setFirstName(e.target.value)}  */}
-                    <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] font-[600]'>Name</p>
-                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your name' />
+            <p className='mx-10  max-md:mx-5 text-[#000000] font-[Inter] text-[65px] max-xl:text-[60px] max-lg:text-[50px] max-md:text-[40px] max-sm:text-[32px] max-xsm:text-[24px] max-xsxl:text-[20px] mt-10 font-[700] text-center'>Join the waitlist</p>
+            <form className='px-10  max-md:px-5 w-[70%] max-sm:w-full' onSubmit={handleSubmit}>
+                <div className='my-5'>
+
+                    <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600]'>Name</p>
+                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your name'  id="firstQuestion" value={data.firstQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }} />
                 </div>
+                <div className='my-5'>
+
+                    <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600]'>Email</p>
+                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your email'  id="secondQuestion" value={data.secondQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }}/>
+                </div>
+                <div className='my-5'>
+
+                    <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600]'>Phone</p>
+                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your phone number'  id="thirdQuestion" value={data.thirdQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }}/>
+                </div>
+
+                <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>What do you need help with? (Check all that apply)</p>
+
+                <div className="flex flex-col min-w-fit pt-5 ">
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fourthQuestion"
+                            value={'Reducing stress'}
+                            checked={data.fourthQuestion === "Reducing stress"}
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                            className='h-8 w-8'
+                        />
+                        <div className="text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Reducing stress"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fourthQuestion"
+                            value={"Better sleep"}
+                            checked={data.fourthQuestion === "Better sleep"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Better sleep"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fourthQuestion"
+                            value={"Improving sleep"}
+                            checked={data.fourthQuestion === "Improving sleep"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Improving sleep"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fourthQuestion"
+                            value={"Building health habits"}
+                            checked={data.fourthQuestion === "Building health habits"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Building health habits"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fourthQuestion"
+                            value={"Feeling more calm"}
+                            checked={data.fourthQuestion === "Feeling more calm"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className="text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Feeling more calm"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fourthQuestion"
+                            value={"Other (please specify)"}
+                            checked={data.fourthQuestion === "Other (please specify)"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other (please specify)"}</div>
+
+                    </div>
+                </div>
+                <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>What feature do you like? (Check all that apply)</p>
+
+                <div className="flex flex-col min-w-fit pt-5 ">
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fifthQuestion"
+                            value={'Yoga'}
+                            checked={data.fifthQuestion === "Yoga"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+
+                        />
+                        <div className="text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Yoga"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fifthQuestion"
+                            value={"Meditation"}
+                            checked={data.fifthQuestion === "Meditation"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Meditation"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fifthQuestion"
+                            value={"Mindfulness exercise"}
+                            checked={data.fifthQuestion === "Mindfulness exercise"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Mindfulness exercise"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fifthQuestion"
+                            value={"Community support"}
+                            checked={data.fifthQuestion === "Community support"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Community support"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fifthQuestion"
+                            value={"Learning about wellness"}
+                            checked={data.fifthQuestion === "Learning about wellness"}
+                            className='h-8 w-8'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Learning about wellness"}</div>
+
+                    </div>
+                    <div className="flex justify-between items-center max-w-fit">
+                        <input
+                            type="checkbox"
+                            name="fifthQuestion"
+                            value={"Other (please specify)"}
+                            checked={data.fifthQuestion === "Other (please specify)"}
+                            className='h-8 w-8 bg-black'
+                            onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
+                        />
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other (please specify)"}</div>
+
+                    </div>
+                </div>
+
+                <div className='text-gray-900 text-base max-sm:text-xs font-normal  my-20'>
+                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>How did you hear about us?</label>
+                    <div className="w-full flex justify-between items-center mt-5" >
+                        <select name="sixthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.sixthQuestion} onChange={(e) => { setData({ ...data, sixthQuestion: e.target.value }) }}>
+                            <option value='null'>Please select</option>
+                            <option value='Social media'>Social media</option>
+                            <option value='Friend/family'>Friend/family</option>
+                            <option value='Online search'>Online search</option>
+                            <option value='Ads'>Ads</option>
+                            <option value='Other (please specify)'>Other (please specify)</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-60'>
+                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Country</label>
+                    <div className="w-full flex justify-between items-center mt-5" >
+                        <select name="seventhQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.seventhQuestion} onChange={(e) => { setData({ ...data, seventhQuestion: e.target.value }) }}>
+                            <option value='null'>Please select</option>
+                            <option value='Nigeria'>Nigeria</option>
+                            <option value='Ghana'>Ghana</option>
+                            <option value='Egypt'>Egypt</option>
+                            <option value='South africa'>South africa</option>
+                            <option value='Senegal'>Senegal</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-60'>
+                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>How old are you?</label>
+                    <div className="w-full flex justify-between items-center mt-5 " >
+                        <select name="eighthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.eighthQuestion} onChange={(e) => { setData({ ...data, eighthQuestion: e.target.value }) }}>
+                            <option value='null'>Please select</option>
+                            <option value='18 -25'>18 -25</option>
+                            <option value='26 - 35'>26 - 35</option>
+                            <option value='36 - 45'>36 - 45</option>
+                            <option value='45 & Above'>45 & Above</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-60'>
+                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Want to get updates from soothify?</label>
+                    <div className="w-full flex justify-between items-center mt-5" >
+                        <select name="ninthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.ninthQuestion} onChange={(e) => { setData({ ...data, ninthQuestion: e.target.value }) }}>
+                            <option value='null'>Please select</option>
+                            <option value='Yes'>Yes</option>
+                            <option value='No'>No</option>
+                            
+                        </select>
+                    </div>
+
+                </div>
+                <div className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg mt-32 text-white' onClick={handleSubmit}>Submit</div>
+                <p className='text-black font-[Inter] text-[20px] max-xl:text-[18px] max-lg:text-[16px] max-md:text-[14px] font-[300] pt-5'>By submitting you agree  to get emails from us about the App. your info is safe with us</p>
             </form>
             <div className={`h-[240px] mt-40  bg-[#F7F9FC] pt-16 pb-16  max-md:mt-32 max-sm:mt-24 `}>
                 <div className='border-t border-blue-100 flex flex-row justify-end max-sm:justify-between items-end px-10 max-md:px-5 max-sm:px-3  '>
                     <div className='flex flex-row justify-end max-sm:justify-between items-center gap-4 pt-10 '>
-                        <p className='text-[#170F00] font-[Inter] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[10px] font-[500]'>I fit choose my therapist?</p>
+                        <p className='text-[#170F00] font-[Inter] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[10px] font-[500]'>follow us on</p>
                         <div className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
                             <ImFacebook className='text-white max-md:h-3 max-md:w-3' />
                         </div>
