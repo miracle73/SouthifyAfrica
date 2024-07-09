@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema(
 		phone: { type: String, require: true },
 		need: { type: String, require: true },
 		favFeature: { type: String, require: true },
-		ref: { type: String, require: true },
+		: { type: String, require: true },
 	},
 	{
 		timestamps: true,
