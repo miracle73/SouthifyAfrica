@@ -8,17 +8,48 @@ import { FiInstagram } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
+import ReactQuill, { Quill } from 'react-quill';
+import 'quill/dist/quill.snow.css'; // import styles
+
 
 
 
 const WaitlistForm = () => {
+    const [value, setValue] = React.useState('');
+
+    const [submit, setSubmit] = useState(false)
+    const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
     const handleSubmit = (event: any) => {
         event.preventDefault();
         console.log(data);
-    
-    
+        console.log(value)
+        setData({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" })
+        setSubmit(true)
+        setValue('')
+
     };
-    const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
+    if (submit) {
+        return (
+            <div className='min-h-screen w-full  pt-5 flex flex-col gap-8 justify-between items-start'>
+                <div>
+                    <div className='flex flex-row max-md:flex-col max-md:items-start items-center justify-between mx-10  max-md:mx-5'>
+                        <div className='max-md:flex max-md:flex-row max-md:justify-between max-md:items-center max-md:w-full'>
+                            <div className='flex justify-between items-center gap-4'>
+                                <img src={SouthifyIcon} />
+                                <img src={SouthifyLogo} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='w-full flex flex-col gap-2 justify-start items-center'>
+                    <p className='text-[#000000] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>You will hear fro us very soon</p>
+                    <Link to="/" className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg text-white'>Go back to homepage</Link>
+                </div>
+                <div></div>
+            </div>
+
+        )
+    }
     return (
         <div className={`min-h-screen w-full  pt-5 flex flex-col justify-between`}>
             <div>
@@ -33,20 +64,22 @@ const WaitlistForm = () => {
             </div>
             <p className='mx-10  max-md:mx-5 text-[#000000] font-[Inter] text-[65px] max-xl:text-[60px] max-lg:text-[50px] max-md:text-[40px] max-sm:text-[32px] max-xsm:text-[24px] max-xsxl:text-[20px] mt-10 font-[700] text-center'>Join the waitlist</p>
             <form className='px-10  max-md:px-5 w-[70%] max-sm:w-full' onSubmit={handleSubmit}>
+                <ReactQuill theme="snow" value={value} onChange={setValue}  className='h-40'/>
+                
                 <div className='my-5'>
 
                     <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600]'>Name</p>
-                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your name'  id="firstQuestion" value={data.firstQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }} />
+                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your name' id="firstQuestion" value={data.firstQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }} />
                 </div>
                 <div className='my-5'>
 
                     <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600]'>Email</p>
-                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your email'  id="secondQuestion" value={data.secondQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }}/>
+                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your email' id="secondQuestion" value={data.secondQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }} />
                 </div>
                 <div className='my-5'>
 
                     <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600]'>Phone</p>
-                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your phone number'  id="thirdQuestion" value={data.thirdQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }}/>
+                    <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your phone number' id="thirdQuestion" value={data.thirdQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }} />
                 </div>
 
                 <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>What do you need help with? (Check all that apply)</p>
@@ -207,7 +240,7 @@ const WaitlistForm = () => {
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>How did you hear about us?</label>
                     <div className="w-full flex justify-between items-center mt-5" >
                         <select name="sixthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.sixthQuestion} onChange={(e) => { setData({ ...data, sixthQuestion: e.target.value }) }}>
-                            <option value='null'>Please select</option>
+                            <option value="" disabled selected hidden>Please select</option>
                             <option value='Social media'>Social media</option>
                             <option value='Friend/family'>Friend/family</option>
                             <option value='Online search'>Online search</option>
@@ -221,7 +254,7 @@ const WaitlistForm = () => {
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Country</label>
                     <div className="w-full flex justify-between items-center mt-5" >
                         <select name="seventhQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.seventhQuestion} onChange={(e) => { setData({ ...data, seventhQuestion: e.target.value }) }}>
-                            <option value='null'>Please select</option>
+                            <option value="" disabled selected hidden>Please select</option>
                             <option value='Nigeria'>Nigeria</option>
                             <option value='Ghana'>Ghana</option>
                             <option value='Egypt'>Egypt</option>
@@ -235,7 +268,7 @@ const WaitlistForm = () => {
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>How old are you?</label>
                     <div className="w-full flex justify-between items-center mt-5 " >
                         <select name="eighthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.eighthQuestion} onChange={(e) => { setData({ ...data, eighthQuestion: e.target.value }) }}>
-                            <option value='null'>Please select</option>
+                            <option value="" disabled selected hidden>Please select</option>
                             <option value='18 -25'>18 -25</option>
                             <option value='26 - 35'>26 - 35</option>
                             <option value='36 - 45'>36 - 45</option>
@@ -248,15 +281,16 @@ const WaitlistForm = () => {
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Want to get updates from soothify?</label>
                     <div className="w-full flex justify-between items-center mt-5" >
                         <select name="ninthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.ninthQuestion} onChange={(e) => { setData({ ...data, ninthQuestion: e.target.value }) }}>
-                            <option value='null'>Please select</option>
+                            {/* <option value='null disabled'>Please select</option> */}
+                            <option value="" disabled selected hidden>Please select</option>
                             <option value='Yes'>Yes</option>
                             <option value='No'>No</option>
-                            
+
                         </select>
                     </div>
 
                 </div>
-                <div className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg mt-32 text-white' onClick={handleSubmit}>Submit</div>
+                <button className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg mt-32 text-white' onClick={handleSubmit}>Submit</button>
                 <p className='text-black font-[Inter] text-[20px] max-xl:text-[18px] max-lg:text-[16px] max-md:text-[14px] font-[300] pt-5'>By submitting you agree  to get emails from us about the App. your info is safe with us</p>
             </form>
             <div className={`h-[240px] mt-40  bg-[#F7F9FC] pt-16 pb-16  max-md:mt-32 max-sm:mt-24 `}>
