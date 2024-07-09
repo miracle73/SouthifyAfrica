@@ -2,8 +2,8 @@ import mongoose from 'mongoose'
 
 const userSchema = mongoose.Schema(
 	{
-		email: { type: String, require: true, unique: false },
-		email: { type: String, require: true, unique: false }
+		email: { type: String, require: true, unique: true },
+		email: { type: String, require: true }
 	},
 	{
 		timestamps: true,
