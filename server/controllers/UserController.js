@@ -8,13 +8,13 @@ export const user_signup = asyncHandler(async (req, res, next) => {
     try {
         const {
             email,
-            name: { type: String, require: true },
-		phone: { type: String, require: true },
-		need: { type: String, require: true },
-		favFeature: { type: String, require: true },
-		awarenessMedium: { type: String, require: true },
-		country: { type: String, require: true },
-		age: { type: String, require: true },
+            name,
+		phone,
+		need,
+		favFeature,
+		awarenessMedium,
+		country,
+		age,
 		subscribe: { type: Boolean, require: true },
         } = req.body
 
