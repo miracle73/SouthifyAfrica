@@ -7,7 +7,8 @@ const userSchema = mongoose.Schema(
 		phone: { type: String, require: true },
 		need: { type: String, require: true },
 		favFeature: { type: String, require: true },
-		awareness: { type: String, require: true },
+		awarenessMedium: { type: String, require: true },
+		phone: { type: String, require: true },
 	},
 	{
 		timestamps: true,
