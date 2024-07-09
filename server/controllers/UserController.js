@@ -15,7 +15,7 @@ export const user_signup = asyncHandler(async (req, res, next) => {
             awarenessMedium,
             country,
             age,
-            subscribe,
+            subscribe
         } = req.body
 
 
