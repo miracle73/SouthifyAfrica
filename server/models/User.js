@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema(
 		awarenessMedium: { type: String, require: true },
 		country: { type: String, require: true },
 		age: { type: String, require: true },
-		
+		phone: { type: String, require: true },
 	},
 	{
 		timestamps: true,
