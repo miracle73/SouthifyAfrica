@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema(
 		name: { type: String, require: true },
 		phone: { type: String, require: true },
 		need: { type: String, require: true },
+		favFeature: { type: String, require: true },
 		phone: { type: String, require: true },
 	},
 	{
