@@ -9,13 +9,13 @@ export const user_signup = asyncHandler(async (req, res, next) => {
         const {
             email,
             name,
-		phone,
-		need,
-		favFeature,
-		awarenessMedium,
-		country,
-		age,
-		subscribe: { type: Boolean, require: true },
+            phone,
+            need,
+            favFeature,
+            awarenessMedium,
+            country,
+            age,
+            subscribe,
         } = req.body
 
 
