@@ -1,6 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
+import  { useState} from 'react'
 import './App.css'
-import CancelIcon from '../assets/images/cancel.png'
 import { Link } from 'react-router-dom';
 import { ImFacebook } from "react-icons/im";
 import { VscTwitter } from "react-icons/vsc";
@@ -10,82 +9,81 @@ import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 
 
 
 const WaitlistForm = () => {
-    const [value, setValue] = React.useState('');
     const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        console.log(data);
-        console.log(value)
-        setData({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" })
-        setSubmit(true)
-        setValue('')
+    // const handleSubmit = (event: any) => {
+    //     event.preventDefault();
+    //     console.log(data);
+    //     console.log(value)
+    //     setData({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" })
+    //     setSubmit(true)
+    //     setValue('')
 
-    };
-    const handleSubmit3 = async (event: any) => {
-        setLoading(true)
-        event.preventDefault();
+    // };
+    // const handleSubmit3 = async (event: any) => {
+    //     setLoading(true)
+    //     event.preventDefault();
 
-        // Construct the body of the request
-        const requestBody = {
-            email: data.secondQuestion,
-            name: data.firstQuestion,
-            phone: data.thirdQuestion,
-            need: data.fourthQuestion,
-            favFeature: data.fifthQuestion,
-            awarenessMedium: data.sixthQuestion,
-            country: data.seventhQuestion,
-            age: data.eighthQuestion,
-            subscribe: data.ninthQuestion === 'Yes',
-        };
+    //     // Construct the body of the request
+    //     const requestBody = {
+    //         email: data.secondQuestion,
+    //         name: data.firstQuestion,
+    //         phone: data.thirdQuestion,
+    //         need: data.fourthQuestion,
+    //         favFeature: data.fifthQuestion,
+    //         awarenessMedium: data.sixthQuestion,
+    //         country: data.seventhQuestion,
+    //         age: data.eighthQuestion,
+    //         subscribe: data.ninthQuestion === 'Yes',
+    //     };
 
-        console.log(requestBody)
+    //     console.log(requestBody)
 
-        try {
-            const response = await fetch('https://southifyafrica-1.onrender.com/api/user/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestBody),
-            });
+    //     try {
+    //         const response = await fetch('https://southifyafrica-1.onrender.com/api/user/', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(requestBody),
+    //         });
 
-            // if (!response.ok) {
-            //     throw new Error(`HTTP error! status: ${response.status}`);
-            //     setLoading(false)
-            // }
-
-
-            setData({
-                firstQuestion: '',
-                secondQuestion: '',
-                thirdQuestion: '',
-                fourthQuestion: '',
-                fifthQuestion: '',
-                sixthQuestion: "",
-                seventhQuestion: "",
-                eighthQuestion: "",
-                ninthQuestion: ""
-            });
-            setSubmit(true);
-            console.log("Done")
-            setLoading(false)
+    //         // if (!response.ok) {
+    //         //     throw new Error(`HTTP error! status: ${response.status}`);
+    //         //     setLoading(false)
+    //         // }
 
 
-        } catch (error) {
-            console.error('There was an error!', error);
-            setLoading(false)
+    //         setData({
+    //             firstQuestion: '',
+    //             secondQuestion: '',
+    //             thirdQuestion: '',
+    //             fourthQuestion: '',
+    //             fifthQuestion: '',
+    //             sixthQuestion: "",
+    //             seventhQuestion: "",
+    //             eighthQuestion: "",
+    //             ninthQuestion: ""
+    //         });
+    //         setSubmit(true);
+    //         console.log("Done")
+    //         setLoading(false)
 
-        }
-    };
+
+    //     } catch (error) {
+    //         console.error('There was an error!', error);
+    //         setLoading(false)
+
+    //     }
+    // };
    
 
     const handleSubmit2 = async (event: any) => {

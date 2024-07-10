@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Link } from 'react-router-dom';
 import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
 import { IoIosArrowDown } from "react-icons/io";
 import firstBackground from './assets/image/firstBackground.png'
+import secondBackground from './assets/image/secondBackground.png'
 import firstPicture from './assets/image/man.png'
 import secondPicture from './assets/image/Group.png'
 import thirdPicture from './assets/image/woman.png'
@@ -165,7 +166,7 @@ const HomePage = () => {
 
         </div>
       </div>
-      <div className={` mx-10 max-md:mx-5 h-[450px] max-lg:h-[800px] max-md:h-[750px] max-sm:h-[500px] max-xsm:h-[550px] max-xsxl:h-[600px] mt-40 mb-20 max-md:px-5 max-xl:px-8 max-lg:px-6 bg-black relative rounded-[24px] flex flex-row  justify-end max-lg:justify-start max-lg:items-start bg-myimage ${arrow && 'hidden'}`} >
+      <div className={` mx-10 max-md:mx-5 h-[450px] max-lg:h-[800px] max-md:h-[750px] max-sm:h-[500px] max-xsm:h-[550px] max-xsxl:h-[600px] mt-40 mb-20 max-md:px-5 max-xl:px-8 max-lg:px-6 bg-black relative rounded-[24px] flex flex-row  justify-end max-lg:justify-start max-lg:items-start ${arrow && 'hidden'}`} style={{ backgroundImage: `url(${secondBackground})` }}>
         <img src={Phone} className='absolute bottom-4 left-0 max-sm:left-20 max-xsm:left-5 z-20 max-sm:w-64 max-sm:h-64' />
         <div className='flex flex-col justify-center max-lg:justify-start gap-10 max-lg:gap-3 items-start max-lg:items-center max-md:items-start   w-1/2 max-lg:w-full self-center max-lg:self-start'>
           <p className='font-[600] pt-10 font-[Inter] text-[48px] max-xl:text-[44px] max-md:text-[36px] max-sm:text-[32px] text-[#FFFFFF] max-lg:text-center max-md:text-start '> {pidgin ? ' Come dey Part of ' : 'Become a part of our '}     <br className='max-lg:hidden' />  {pidgin ? ' Our Community' : ' community '}
