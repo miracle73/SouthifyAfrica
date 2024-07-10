@@ -8,15 +8,17 @@ import { FiInstagram } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
-import ReactQuill, { Quill } from 'react-quill';
-import 'quill/dist/quill.snow.css'; // import styles
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+
 
 
 
 
 const WaitlistForm = () => {
     const [value, setValue] = React.useState('');
-
+    const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
     const handleSubmit = (event: any) => {
@@ -28,6 +30,113 @@ const WaitlistForm = () => {
         setValue('')
 
     };
+    const handleSubmit3 = async (event: any) => {
+        setLoading(true)
+        event.preventDefault();
+
+        // Construct the body of the request
+        const requestBody = {
+            email: data.secondQuestion,
+            name: data.firstQuestion,
+            phone: data.thirdQuestion,
+            need: data.fourthQuestion,
+            favFeature: data.fifthQuestion,
+            awarenessMedium: data.sixthQuestion,
+            country: data.seventhQuestion,
+            age: data.eighthQuestion,
+            subscribe: data.ninthQuestion === 'Yes',
+        };
+
+        console.log(requestBody)
+
+        try {
+            const response = await fetch('https://southifyafrica-1.onrender.com/api/user/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+            });
+
+            // if (!response.ok) {
+            //     throw new Error(`HTTP error! status: ${response.status}`);
+            //     setLoading(false)
+            // }
+
+
+            setData({
+                firstQuestion: '',
+                secondQuestion: '',
+                thirdQuestion: '',
+                fourthQuestion: '',
+                fifthQuestion: '',
+                sixthQuestion: "",
+                seventhQuestion: "",
+                eighthQuestion: "",
+                ninthQuestion: ""
+            });
+            setSubmit(true);
+            console.log("Done")
+            setLoading(false)
+
+
+        } catch (error) {
+            console.error('There was an error!', error);
+            setLoading(false)
+
+        }
+    };
+   
+
+    const handleSubmit2 = async (event: any) => {
+        setLoading(true);
+        event.preventDefault();
+
+        // Construct the body of the request
+        const requestBody = {
+            email: data.secondQuestion,
+            name: data.firstQuestion,
+            phone: data.thirdQuestion,
+            need: data.fourthQuestion,
+            favFeature: data.fifthQuestion,
+            awarenessMedium: data.sixthQuestion,
+            country: data.seventhQuestion,
+            age: data.eighthQuestion,
+            subscribe: data.ninthQuestion === 'Yes',
+        };
+
+        console.log(requestBody);
+
+        try {
+            // const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            // });
+
+            // Assuming you want to handle success similarly
+            setData({
+                firstQuestion: '',
+                secondQuestion: '',
+                thirdQuestion: '',
+                fourthQuestion: '',
+                fifthQuestion: '',
+                sixthQuestion: "",
+                seventhQuestion: "",
+                eighthQuestion: "",
+                ninthQuestion: ""
+            });
+            setSubmit(true);
+            console.log("Done");
+            setLoading(false);
+
+        } catch (error) {
+            console.error('There was an error!', error);
+            setLoading(false);
+        }
+    };
+
+
     if (submit) {
         return (
             <div className='min-h-screen w-full  pt-5 flex flex-col gap-8 justify-between items-start'>
@@ -42,7 +151,7 @@ const WaitlistForm = () => {
                     </div>
                 </div>
                 <div className='w-full flex flex-col gap-2 justify-start items-center'>
-                    <p className='text-[#000000] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>You will hear fro us very soon</p>
+                    <p className='text-[#000000] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>You will hear from us very soon</p>
                     <Link to="/" className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg text-white'>Go back to homepage</Link>
                 </div>
                 <div></div>
@@ -63,9 +172,9 @@ const WaitlistForm = () => {
                 </div>
             </div>
             <p className='mx-10  max-md:mx-5 text-[#000000] font-[Inter] text-[65px] max-xl:text-[60px] max-lg:text-[50px] max-md:text-[40px] max-sm:text-[32px] max-xsm:text-[24px] max-xsxl:text-[20px] mt-10 font-[700] text-center'>Join the waitlist</p>
-            <form className='px-10  max-md:px-5 w-[70%] max-sm:w-full' onSubmit={handleSubmit}>
-                <ReactQuill theme="snow" value={value} onChange={setValue}  className='h-40'/>
-                
+            <form className='px-10  max-md:px-5 w-[70%] max-sm:w-full' onSubmit={handleSubmit2}>
+
+
                 <div className='my-5'>
 
                     <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600]'>Name</p>
@@ -250,7 +359,7 @@ const WaitlistForm = () => {
                     </div>
 
                 </div>
-                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-60'>
+                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-20'>
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Country</label>
                     <div className="w-full flex justify-between items-center mt-5" >
                         <select name="seventhQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.seventhQuestion} onChange={(e) => { setData({ ...data, seventhQuestion: e.target.value }) }}>
@@ -264,7 +373,7 @@ const WaitlistForm = () => {
                     </div>
 
                 </div>
-                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-60'>
+                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-20'>
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>How old are you?</label>
                     <div className="w-full flex justify-between items-center mt-5 " >
                         <select name="eighthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.eighthQuestion} onChange={(e) => { setData({ ...data, eighthQuestion: e.target.value }) }}>
@@ -277,7 +386,7 @@ const WaitlistForm = () => {
                     </div>
 
                 </div>
-                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-60'>
+                <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-20'>
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Want to get updates from soothify?</label>
                     <div className="w-full flex justify-between items-center mt-5" >
                         <select name="ninthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.ninthQuestion} onChange={(e) => { setData({ ...data, ninthQuestion: e.target.value }) }}>
@@ -290,7 +399,12 @@ const WaitlistForm = () => {
                     </div>
 
                 </div>
-                <button className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg mt-32 text-white' onClick={handleSubmit}>Submit</button>
+                {loading ? (
+                    <FontAwesomeIcon icon={faSpinner} spin className='mt-32' />
+                ) : (
+                    <button className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg mt-32 text-white' onClick={handleSubmit2}>Submit</button>
+                )}
+
                 <p className='text-black font-[Inter] text-[20px] max-xl:text-[18px] max-lg:text-[16px] max-md:text-[14px] font-[300] pt-5'>By submitting you agree  to get emails from us about the App. your info is safe with us</p>
             </form>
             <div className={`h-[240px] mt-40  bg-[#F7F9FC] pt-16 pb-16  max-md:mt-32 max-sm:mt-24 `}>
