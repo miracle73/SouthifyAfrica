@@ -22,6 +22,7 @@ import { FiInstagram } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 import Navbar from './assets/image/Navbar.png'
 import Close from './assets/image/x-close.png'
+import { useLanguageContext } from './LanguageContext';
 
 const HomePage = () => {
   const [open, setOpen] = useState(false)
@@ -29,8 +30,9 @@ const HomePage = () => {
   const [thirdOpen, setThirdOpen] = useState(false)
   const [fourthOpen, setFourthOpen] = useState(false)
   const [navbar, setNavbar] = useState(false)
-  const [pidgin, setPidgin] = useState(false)
+  // const [pidgin, setPidgin] = useState(false)
   const [arrow, setArrow] = useState(false)
+  const { pidgin, togglePidgin } = useLanguageContext();
   return (
     <div className={`min-h-screen w-full  pt-5 ${arrow && 'flex flex-col justify-between'}`}>
       <div>
@@ -65,24 +67,24 @@ const HomePage = () => {
         </div>
       </div>
       {arrow && <div className='h-36 max-md:hidden w-60 bg-white px-5 py-3 absolute top-20 right-20'>
-        <div onClick={() => { setPidgin(false); setArrow(false) }} className='bg-[#F9F9F9]  hover:bg-[#2F6FED] active:bg-[#2F6FED] active:text-white text-[#1B1F26B8] hover:text-white h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
+        <div onClick={() => { togglePidgin(); setArrow(false) }} className='bg-[#F9F9F9]  hover:bg-[#2F6FED] active:bg-[#2F6FED] active:text-white text-[#1B1F26B8] hover:text-white h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
           <p className='  hover:text-white font-[500] font-[Nunito] text-[14px]'>English</p>
         </div>
-        <div onClick={() => { setPidgin(true); setArrow(false) }} className='bg-[#F9F9F9] active:bg-[#2F6FED] active:text-white  hover:bg-[#2F6FED] text-[#1B1F26B8] hover:text-white mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
+        <div onClick={() => { togglePidgin(); setArrow(false) }} className='bg-[#F9F9F9] active:bg-[#2F6FED] active:text-white  hover:bg-[#2F6FED] text-[#1B1F26B8] hover:text-white mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
           <p className=' hover:text-white font-[500] font-[Nunito] text-[14px]'>Pidgin</p>
         </div>
       </div>}
       {arrow && <div className='h-36 md:hidden w-60 bg-white px-5 py-3 absolute top-40 right-5'>
-        <div onClick={() => { setPidgin(false); setArrow(false) }} className='bg-[#2F6FED] h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
+        <div onClick={() => { togglePidgin(); setArrow(false) }} className='bg-[#2F6FED] h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
           <p className='text-white font-[500] font-[Nunito] text-[14px]'>English</p>
         </div>
-        <div onClick={() => { setPidgin(true); setArrow(false) }} className='bg-[#F9F9F9] mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
+        <div onClick={() => { togglePidgin(); setArrow(false) }} className='bg-[#F9F9F9] mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
           <p className='text-[#1B1F26B8] font-[500] font-[Nunito] text-[14px]'>Pidgin</p>
         </div>
       </div>}
       <div className={`flex justify-between max-md:flex-col  items-center mt-20  mx-10 max-md:mx-5 ${arrow && 'hidden'}`}>
         <div className='flex flex-col justify-center p-4'>
-          <p className='text-black font-[Inter] text-[64px] max-xl:text-[50px] max-lg:text-[38px] max-lg:mb-5 max-md:text-[42px] font-[700] '>{pidgin ? 'Find Your Peace for Here' : 'Find Your Inner Peace'}</p>
+          <p className='text-black font-[Inter] text-[64px] max-xl:text-[50px] max-lg:text-[38px] max-lg:mb-5 max-md:text-[42px] font-[700] '>{pidgin ? 'Find Your Peace For Here' : 'Find Your Inner Peace'}</p>
           <p className='text-[#160F0A] font-[Satoshi] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[18px] font-[400]'>{pidgin ? 'Welcome to Soothify, where we dey help you find peace, balance, and jolly. Soothify dey here to give you all the tools and support wey you need to live better' : 'Welcome to Soothify! Your journey to peace and wellness starts here. We provide the tools and support you need for a happy and balanced life.'}</p>
           <Link to="/waitlist" className='bg-[#2F6FED] w-fit px-4 py-2  rounded-[12px] mt-10 max-lg:mt-7 max-md:mt-5'>
             <p className='text-white font-[Inter] text-[21px] max-xl:text-[18px] max-lg:text-[14px] max-md:text-[16px] font-[600] text-center'>Join Waitlist</p>
@@ -180,9 +182,15 @@ const HomePage = () => {
         </div>
 
       </div>
-      <div className={`bg-[#E8F5FC]  mx-10 max-md:mx-5 w-36 max-md:w-fit max-md:px-4 py-2  rounded-[6px] ${arrow && 'hidden'}`}>
+      {/* <div className={`bg-[#E8F5FC]  mx-10 max-md:mx-5 w-36 max-md:w-fit max-md:px-4 py-2  rounded-[6px] ${arrow && 'hidden'}`}>
         <p className='text-[#2F6FED] font-[Satoshi] text-[16px] max-md:text-[13px] font-[700] text-center'>Support</p>
-      </div>
+      </div> */}
+      <a href="mailto:Soothifyafrica@gmail.com">
+        <div className={`bg-[#E8F5FC]  mx-10 max-md:mx-5 w-36 max-md:w-fit max-md:px-4 py-2  rounded-[6px] ${arrow && 'hidden'}`}>
+          <p className='text-[#2F6FED] font-[Satoshi] text-[16px] max-md:text-[13px] font-[700] text-center'>Support</p>
+        </div>
+      </a>
+
 
       <p className={`text-[#121212]  mx-10 max-md:mx-5 font-[Satoshi] text-[36px] max-lg:text-[30px] max max-md:text-[28px] font-[700] mt-10 max-md:mt-5 ${arrow && 'hidden'}`}>{pidgin ? ' ' : "Frequently Asked Questions"}</p>
       <div className={`${arrow && 'hidden'}`}>
@@ -276,9 +284,9 @@ const HomePage = () => {
         <div className='border-t border-blue-100 flex flex-row justify-end max-sm:justify-between items-end px-10 max-md:px-5 max-sm:px-3  '>
           <div className='flex flex-row justify-end max-sm:justify-between items-center gap-4 pt-10 '>
             <p className='text-[#170F00] font-[Inter] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[10px] font-[500]'>follow us on</p>
-            <Link to="" className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
+            {/* <Link to="" className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
               <ImFacebook className='text-white max-md:h-3 max-md:w-3' />
-            </Link>
+            </Link> */}
             <Link to="https://x.com/soothifyafrica?s=21&t=HA6M5FfESE3wkPAI2ot6mw" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
               <VscTwitter className='text-white max-md:h-3 max-md:w-3' />
             </Link>

@@ -9,6 +9,7 @@ import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { useLanguageContext } from './LanguageContext';
 // import axios from 'axios';
 
 
@@ -19,6 +20,7 @@ const WaitlistForm = () => {
     const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
+    const { pidgin, togglePidgin } = useLanguageContext();
     // const handleSubmit = (event: any) => {
     //     event.preventDefault();
     //     console.log(data);
@@ -26,7 +28,7 @@ const WaitlistForm = () => {
     //     setData({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" })
     //     setSubmit(true)
     //     setValue('')
-
+    console.log(pidgin)
     // };
     // const handleSubmit3 = async (event: any) => {
     //     setLoading(true)
@@ -169,7 +171,13 @@ const WaitlistForm = () => {
                     </div>
                 </div>
             </div>
-            <p className='mx-10  max-md:mx-5 text-[#000000] font-[Inter] text-[65px] max-xl:text-[60px] max-lg:text-[50px] max-md:text-[40px] max-sm:text-[32px] max-xsm:text-[24px] max-xsxl:text-[20px] mt-10 font-[700] text-center'>Join the waitlist</p>
+            <p className='mx-10  max-md:mx-5 text-[#000000] font-[Inter] text-[65px] max-xl:text-[60px] max-lg:text-[50px] max-md:text-[40px] max-sm:text-[32px] max-xsm:text-[24px] max-xsxl:text-[20px] mt-10 font-[700] text-center'>{pidgin ? 'Join Soothify Waitlist' : 'Join the Soothify Waitlist'}</p>
+            <p className='text-black px-10  max-md:px-5 font-[Inter] text-[20px] max-xl:text-[18px] max-lg:text-[16px] max-md:text-[14px] font-[300] pt-5'>
+                {pidgin ? 'Hello!' : "Hi there!"}
+            </p>
+            <p className='text-black px-10  max-md:px-5 font-[Inter] text-[20px] max-xl:text-[18px] max-lg:text-[16px] max-md:text-[14px] font-[300] pt-5'>
+                {pidgin ? 'We happy to help you for your wellness journey. Join our waitlist to be first to try Soothify!' : "We're excited to help you with your wellness journey. Join our waitlist to be the first to try Soothify!"}
+            </p>
             <form className='px-10  max-md:px-5 w-[70%] max-sm:w-full' onSubmit={handleSubmit2}>
 
 
@@ -189,7 +197,7 @@ const WaitlistForm = () => {
                     <input type="text" className='email-input text-black border-[0.5px] opacity-40 border-[#263238] rounded-sm w-full  text-xl max-lg:text-base max-md:text-sm max-sm:text-[10px] mt-2 p-4' placeholder='Enter your phone number' id="thirdQuestion" value={data.thirdQuestion} onChange={(e) => { setData({ ...data, [e.target.id]: e.target.value }) }} />
                 </div>
 
-                <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>What do you need help with? (Check all that apply)</p>
+                <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>{pidgin ? 'Wetin you need help with? (Tick all wey apply)' : 'What do you need help with? (Check all that apply)'}</p>
 
                 <div className="flex flex-col min-w-fit pt-5 ">
                     <div className="flex justify-between items-center max-w-fit">
@@ -201,7 +209,7 @@ const WaitlistForm = () => {
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                             className='h-8 w-8'
                         />
-                        <div className="text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Reducing stress"}</div>
+                        <div className="text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Reduce stress' : 'Reducing stress'}</div>
 
                     </div>
                     <div className="flex justify-between items-center max-w-fit">
@@ -213,7 +221,7 @@ const WaitlistForm = () => {
                             className='h-8 w-8'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Better sleep"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Better sleep' : 'Better sleep'}</div>
 
                     </div>
                     <div className="flex justify-between items-center max-w-fit">
@@ -225,7 +233,7 @@ const WaitlistForm = () => {
                             className='h-8 w-8'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Improving sleep"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Improve focus' : 'Improving focus'}</div>
 
                     </div>
                     <div className="flex justify-between items-center max-w-fit">
@@ -237,7 +245,7 @@ const WaitlistForm = () => {
                             className='h-8 w-8'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Building health habits"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Build healthy habits' : 'Building health habits'}</div>
 
                     </div>
                     <div className="flex justify-between items-center max-w-fit">
@@ -249,7 +257,7 @@ const WaitlistForm = () => {
                             className='h-8 w-8'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className="text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Feeling more calm"}</div>
+                        <div className="text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Feel more calm' : 'Feeling more calm'}</div>
 
                     </div>
                     <div className="flex justify-between items-center max-w-fit">
@@ -261,11 +269,11 @@ const WaitlistForm = () => {
                             className='h-8 w-8'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other(s) (please specify)"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Other (make you specify)' : 'Other(s) (please specify)'}</div>
 
                     </div>
                 </div>
-                <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>What feature do you like? (Check all that apply)</p>
+                <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>{pidgin ? ' Which features you like? (Tick all wey apply):' : 'What feature do you like? (Check all that apply)'}</p>
 
                 <div className="flex flex-col min-w-fit pt-5 ">
                     <div className="flex justify-between items-center max-w-fit">
@@ -326,7 +334,7 @@ const WaitlistForm = () => {
                             className='h-8 w-8'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Learning about wellness"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Learn about wellness' : 'Learning about wellness'}</div>
 
                     </div>
                     <div className="flex justify-between items-center max-w-fit">
@@ -338,21 +346,23 @@ const WaitlistForm = () => {
                             className='h-8 w-8 bg-black'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other(s) (please specify)"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{pidgin ? 'Other (make you specify)' : 'Other(s) (please specify)'}</div>
 
                     </div>
                 </div>
 
                 <div className='text-gray-900 text-base max-sm:text-xs font-normal  my-20'>
-                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>How did you hear about us?</label>
+                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>
+                        {pidgin ? 'How you take hear about us?' : 'How did you hear about us?'}
+                    </label>
                     <div className="w-full flex justify-between items-center mt-5" >
                         <select name="sixthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.sixthQuestion} onChange={(e) => { setData({ ...data, sixthQuestion: e.target.value }) }}>
                             <option value="" disabled selected hidden>Please select</option>
                             <option value='Social media'>Social media</option>
-                            <option value='Friend/family'>Friend/family</option>
+                            <option value='Friend/family'>Friend/Family</option>
                             <option value='Online search'>Online search</option>
                             <option value='Ads'>Ads</option>
-                            <option value='Other (please specify)'>Other(s) (please specify)</option>
+                            <option value='Other (please specify)'>{pidgin ? 'Other (make you specify)' : 'Other(s) (please specify)'}</option>
                         </select>
                     </div>
 
@@ -372,7 +382,7 @@ const WaitlistForm = () => {
 
                 </div>
                 <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-20'>
-                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>How old are you?</label>
+                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>     {pidgin ? 'How old you de?' : 'How old are you?'}</label>
                     <div className="w-full flex justify-between items-center mt-5 " >
                         <select name="eighthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.eighthQuestion} onChange={(e) => { setData({ ...data, eighthQuestion: e.target.value }) }}>
                             <option value="" disabled selected hidden>Please select</option>
@@ -385,7 +395,9 @@ const WaitlistForm = () => {
 
                 </div>
                 <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-20'>
-                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Want to get updates from soothify?</label>
+                    <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>
+                        {pidgin ? 'You wan get updates from Soothify?' : 'Want to get updates from soothify?'}
+                    </label>
                     <div className="w-full flex justify-between items-center mt-5" >
                         <select name="ninthQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.ninthQuestion} onChange={(e) => { setData({ ...data, ninthQuestion: e.target.value }) }}>
                             {/* <option value='null disabled'>Please select</option> */}
@@ -403,7 +415,9 @@ const WaitlistForm = () => {
                     <button className='bg-[#2F6FED] w-fit py-2 px-4 rounded-lg mt-32 text-white' onClick={handleSubmit2}>Submit</button>
                 )}
 
-                <p className='text-black font-[Inter] text-[20px] max-xl:text-[18px] max-lg:text-[16px] max-md:text-[14px] font-[300] pt-5'>By submitting you agree  to get emails from us about the App. your info is safe with us</p>
+                <p className='text-black font-[Inter] text-[20px] max-xl:text-[18px] max-lg:text-[16px] max-md:text-[14px] font-[300] pt-5'>
+                    {pidgin ? 'When you submit, you agree say we go send you email about the app. Your info dey safe with us.' : ' By submitting you agree  to get emails from us about the App. your info is safe with us'}
+                </p>
             </form>
             <div className={`h-[240px] mt-40  bg-[#F7F9FC] pt-16 pb-16  max-md:mt-32 max-sm:mt-24 `}>
                 <div className='border-t border-blue-100 flex flex-row justify-end max-sm:justify-between items-end px-10 max-md:px-5 max-sm:px-3  '>
