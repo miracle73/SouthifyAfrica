@@ -16,7 +16,7 @@ import eighthPicture from './assets/image/love.png'
 import Phone from './assets/image/phone.png'
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineMinusSmall } from "react-icons/hi2";
-import { ImFacebook } from "react-icons/im";
+// import { ImFacebook } from "react-icons/im";
 import { VscTwitter } from "react-icons/vsc";
 import { FiInstagram } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";

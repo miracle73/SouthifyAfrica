@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { Link } from 'react-router-dom';
-import { ImFacebook } from "react-icons/im";
+// import { ImFacebook } from "react-icons/im";
 import { VscTwitter } from "react-icons/vsc";
 import { FiInstagram } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -20,7 +20,7 @@ const WaitlistForm = () => {
     const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
-    const { pidgin, togglePidgin } = useLanguageContext();
+    const { pidgin } = useLanguageContext();
     // const handleSubmit = (event: any) => {
     //     event.preventDefault();
     //     console.log(data);
@@ -423,9 +423,9 @@ const WaitlistForm = () => {
                 <div className='border-t border-blue-100 flex flex-row justify-end max-sm:justify-between items-end px-10 max-md:px-5 max-sm:px-3  '>
                     <div className='flex flex-row justify-end max-sm:justify-between items-center gap-4 pt-10 '>
                         <p className='text-[#170F00] font-[Inter] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[10px] font-[500]'>follow us on</p>
-                        <Link to="" className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
+                        {/* <Link to="" className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
                             <ImFacebook className='text-white max-md:h-3 max-md:w-3' />
-                        </Link>
+                        </Link> */}
                         <Link to="https://x.com/soothifyafrica?s=21&t=HA6M5FfESE3wkPAI2ot6mw" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
                             <VscTwitter className='text-white max-md:h-3 max-md:w-3' />
                         </Link>
