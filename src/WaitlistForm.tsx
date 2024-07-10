@@ -1,4 +1,4 @@
-import  { useState} from 'react'
+import { useState } from 'react'
 import './App.css'
 import { Link } from 'react-router-dom';
 import { ImFacebook } from "react-icons/im";
@@ -84,7 +84,7 @@ const WaitlistForm = () => {
 
     //     }
     // };
-   
+
 
     const handleSubmit2 = async (event: any) => {
         setLoading(true);
@@ -261,7 +261,7 @@ const WaitlistForm = () => {
                             className='h-8 w-8'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other (please specify)"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other(s) (please specify)"}</div>
 
                     </div>
                 </div>
@@ -338,7 +338,7 @@ const WaitlistForm = () => {
                             className='h-8 w-8 bg-black'
                             onChange={(e) => { setData({ ...data, [e.target.name]: e.target.value }) }}
                         />
-                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other (please specify)"}</div>
+                        <div className=" text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px] max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] ml-10 max-lg:ml-8 max-md:ml-5 max-sm:ml-3">{"Other(s) (please specify)"}</div>
 
                     </div>
                 </div>
@@ -352,7 +352,7 @@ const WaitlistForm = () => {
                             <option value='Friend/family'>Friend/family</option>
                             <option value='Online search'>Online search</option>
                             <option value='Ads'>Ads</option>
-                            <option value='Other (please specify)'>Other (please specify)</option>
+                            <option value='Other (please specify)'>Other(s) (please specify)</option>
                         </select>
                     </div>
 
@@ -409,18 +409,18 @@ const WaitlistForm = () => {
                 <div className='border-t border-blue-100 flex flex-row justify-end max-sm:justify-between items-end px-10 max-md:px-5 max-sm:px-3  '>
                     <div className='flex flex-row justify-end max-sm:justify-between items-center gap-4 pt-10 '>
                         <p className='text-[#170F00] font-[Inter] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[10px] font-[500]'>follow us on</p>
-                        <div className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
+                        <Link to="" className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
                             <ImFacebook className='text-white max-md:h-3 max-md:w-3' />
-                        </div>
-                        <div className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
+                        </Link>
+                        <Link to="https://x.com/soothifyafrica?s=21&t=HA6M5FfESE3wkPAI2ot6mw" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
                             <VscTwitter className='text-white max-md:h-3 max-md:w-3' />
-                        </div>
-                        <div className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
+                        </Link>
+                        <Link to="https://www.instagram.com/soothifyafrica?igsh=MW5saDFhcDltdXZ2ag%3D%3D&utm_source=qr" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
                             <FiInstagram className='text-white max-md:h-3 max-md:w-3' />
-                        </div>
-                        <div className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
+                        </Link>
+                        <Link to="https://www.linkedin.com/company/soothify-africa/" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
                             <FaLinkedinIn className='text-white max-md:h-3 max-md:w-3' />
-                        </div>
+                        </Link>
                     </div>
                 </div>
                 <div className='flex flex-row justify-between max-sm:flex-col items-center max-sm:items-start pt-10 px-10 max-md:px-3 '>

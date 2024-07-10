@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
@@ -65,18 +65,18 @@ const HomePage = () => {
         </div>
       </div>
       {arrow && <div className='h-36 max-md:hidden w-60 bg-white px-5 py-3 absolute top-20 right-20'>
-        <div onClick={()=> {setPidgin(false); setArrow(false)}} className='bg-[#2F6FED] h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
-          <p className='text-white font-[500] font-[Nunito] text-[14px]'>English</p>
+        <div onClick={() => { setPidgin(false); setArrow(false) }} className='bg-[#F9F9F9]  hover:bg-[#2F6FED] active:bg-[#2F6FED] active:text-white text-[#1B1F26B8] hover:text-white h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
+          <p className='  hover:text-white font-[500] font-[Nunito] text-[14px]'>English</p>
         </div>
-        <div  onClick={()=> {setPidgin(true); setArrow(false)}}  className='bg-[#F9F9F9] mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
-          <p className='text-[#1B1F26B8] font-[500] font-[Nunito] text-[14px]'>Pidgin</p>
+        <div onClick={() => { setPidgin(true); setArrow(false) }} className='bg-[#F9F9F9] active:bg-[#2F6FED] active:text-white  hover:bg-[#2F6FED] text-[#1B1F26B8] hover:text-white mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
+          <p className=' hover:text-white font-[500] font-[Nunito] text-[14px]'>Pidgin</p>
         </div>
       </div>}
       {arrow && <div className='h-36 md:hidden w-60 bg-white px-5 py-3 absolute top-40 right-5'>
-        <div  onClick={()=> {setPidgin(false); setArrow(false)}}  className='bg-[#2F6FED] h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
+        <div onClick={() => { setPidgin(false); setArrow(false) }} className='bg-[#2F6FED] h-12 rounded-md border-[#CCCCCCCC] border-[0.2px] flex flex-row justify-center items-center'>
           <p className='text-white font-[500] font-[Nunito] text-[14px]'>English</p>
         </div>
-        <div  onClick={()=> {setPidgin(true); setArrow(false)}}  className='bg-[#F9F9F9] mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
+        <div onClick={() => { setPidgin(true); setArrow(false) }} className='bg-[#F9F9F9] mt-5 h-12 border-[#CCCCCCCC] rounded-md border-[0.2px] flex flex-row justify-center items-center'>
           <p className='text-[#1B1F26B8] font-[500] font-[Nunito] text-[14px]'>Pidgin</p>
         </div>
       </div>}
@@ -91,7 +91,7 @@ const HomePage = () => {
         <img src={firstBackground} className='max-md:pt-10 max-xl:w-1/2 max-md:w-full' />
       </div>
       <div className={`pt-20  mx-10 max-md:mx-5 ${arrow && 'hidden'}`}>
-        <p className='text-black font-[Inter] text-[40px] max-md:text-[28px] font-[600] '> {pidgin ? 'The Road Wey Go Lead You to Peace and Good Health.' : 'Your Journey to Peace and '}<br /> {pidgin ? 'Peace and Good Health.' : 'Balance '}</p>
+        <p className='text-black font-[Inter] text-[40px] max-md:text-[28px] font-[600] '> {pidgin ? 'The Road Wey Go Lead You to' : 'Your Journey to Peace and '}<br /> {pidgin ? 'Peace and Good Health.' : 'Balance '}</p>
         <div className='flex flex-row justify-between items-center pt-10'>
           <div className='h-[400px] max-md:h-[250px] w-[38%] max-lg:px-3 bg-[#FFF9F6] rounded-[24px] flex flex-col items-center justify-center gap-8 max-md:gap-2'>
             <p className='text-[#782F0E] font-[Inter] text-[24px] max-xl:text-[20px] max-lg:text-[17px]  max-md:text-[13px] font-[600] text-center'> One-on-One Therapy Sessions</p>
@@ -128,7 +128,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className={`pt-40 max-md:mx-5  mx-10 ${arrow && 'hidden'}`} >
-        <p className='text-[#000000] font-[Inter] text-[40px] max-xl:text-[36px] max-lg:text-[31px] max-md:text-[27px] font-[600]'> WHY YOU FIT CHOOSE SOOTHIFY? </p>
+        <p className='text-[#000000] font-[Inter] text-[40px] max-xl:text-[36px] max-lg:text-[31px] max-md:text-[27px] font-[600]'>{pidgin ? 'WHY YOU FIT CHOOSE SOOTHIFY' : 'WHY CHOOSE SOOTHIFY? '}</p>
         <div className='flex flex-row justify-between max-lg:flex-col items-start max-md:items-start pt-20 max-md:pt-10 gap-8'>
           <div className='max-md:w-[70%] max-sm:w-full max-md:mt-5'>
             <img src={sixthPicture} />
@@ -151,7 +151,7 @@ const HomePage = () => {
             <p className='font-[600] pt-10 max-md:pt-5 font-[Satoshi] text-[20px] text-[#160F0A] '> {pidgin ? 'Easy to Reach, No Big Money' : 'Accessible and Affordable '}</p>
             <p className='font-[400] font-[Satoshi] text-[20px] text-[#160F0A]'>
               {pidgin ?
-                'We believe everyone deserves well-being. That’s why we offer affordable options and strive to make our platform inclusive for all.' :
+                'We believe say everybody suppose get well-being. Na why we get affordable options and we dey try make our platform easy for everybody.' :
                 'We believe everyone deserves well-being. That’s why we offer affordable options and strive to make our platform inclusive for all.'}</p>
           </div>
           <div className='max-md:w-[70%] max-sm:w-full max-md:mt-5'>
@@ -174,9 +174,9 @@ const HomePage = () => {
 
           <p className='font-[400]  font-[Satoshi] text-[20px] max-xl:mx-5 max-lg:mx-0  max-md:text-[18px] max-sm:text-[14px] max-lg:text-center max-md:text-start text-[#FFFFFF] '>  {pidgin ? 'Take charge of your well-being. ' : 'Take charge of your well-being. '}
             <br className='max-lg:hidden' />  {pidgin ? '  No let stress control your life.   ' : "Don't let stress control your life."}</p>
-          <div className='bg-[#2F6FED] w-fit px-4 py-2 max-xl:mx-5 max-lg:mx-0  rounded-[12px]'>
+          <Link to="https://chat.whatsapp.com/CDbQuE6Tik5078EVJmd1LD" target='_blank' className='bg-[#2F6FED] w-fit px-4 py-2 max-xl:mx-5 max-lg:mx-0  rounded-[12px]'>
             <p className='text-white font-[Inter] text-[14px] max-md:text-[11px] font-[600] text-center'>Join Community</p>
-          </div>
+          </Link>
         </div>
 
       </div>
@@ -215,7 +215,7 @@ const HomePage = () => {
             </div>
             <p className='text-[#170F00] max-sm:text-[11px]  max-md:mt-2 mt-5 font-[Satoshi] text-[18px] font-[400]'>
               {pidgin ? ' Sure! You get the power to choose your therapist. We fit also recommend the best therapist wey go fit you, based on the experience and skill of our own psychotherapist wey dey house.' :
-                "Sure! You get the power to choose your therapist. We fit also recommend the best therapist wey go fit you, based on the experience and skill of our own psychotherapist wey dey house."}
+                "Absolutely! You have the freedom to choose your therapist. We can also recommend the best therapist for you based on our expertise and modalities developed by our experienced in-house psychotherapists."}
             </p>
           </div>
         ) : (
@@ -276,18 +276,18 @@ const HomePage = () => {
         <div className='border-t border-blue-100 flex flex-row justify-end max-sm:justify-between items-end px-10 max-md:px-5 max-sm:px-3  '>
           <div className='flex flex-row justify-end max-sm:justify-between items-center gap-4 pt-10 '>
             <p className='text-[#170F00] font-[Inter] text-[20px] max-xl:text-[17px] max-lg:text-[14px] max-md:text-[10px] font-[500]'>follow us on</p>
-            <div className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
+            <Link to="" className='bg-[#121212] justify-center items-center flex flex-row max-md:h-5 max-md:w-5 max-md:rounded-[12px] h-7 w-7 rounded-[15px]'>
               <ImFacebook className='text-white max-md:h-3 max-md:w-3' />
-            </div>
-            <div className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
+            </Link>
+            <Link to="https://x.com/soothifyafrica?s=21&t=HA6M5FfESE3wkPAI2ot6mw" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
               <VscTwitter className='text-white max-md:h-3 max-md:w-3' />
-            </div>
-            <div className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
+            </Link>
+            <Link to="https://www.instagram.com/soothifyafrica?igsh=MW5saDFhcDltdXZ2ag%3D%3D&utm_source=qr" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
               <FiInstagram className='text-white max-md:h-3 max-md:w-3' />
-            </div>
-            <div className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
+            </Link>
+            <Link to="https://www.linkedin.com/company/soothify-africa/" target='_blank' className='bg-[#121212] justify-center items-center flex flex-row h-7 w-7 max-md:h-5 max-md:w-5 max-md:rounded-[12px] rounded-[15px]'>
               <FaLinkedinIn className='text-white max-md:h-3 max-md:w-3' />
-            </div>
+            </Link>
           </div>
         </div>
         <div className='flex flex-row justify-between max-sm:flex-col items-center max-sm:items-start pt-10 px-10 max-md:px-3 '>
