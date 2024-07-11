@@ -54,7 +54,7 @@ const WaitlistForm = () => {
             //         'Content-Type': 'application/json',
             //     },
             // });
-            const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, {
+            const { data: uuu } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, {
                 email: data.secondQuestion,
                 name: data.firstQuestion,
                 phone: data.thirdQuestion,
