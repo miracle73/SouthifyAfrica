@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SouthifyIcon from './assets/image/southify.png'
 import SouthifyLogo from './assets/image/Soothify2.png'
 import { IoIosArrowDown } from "react-icons/io";
