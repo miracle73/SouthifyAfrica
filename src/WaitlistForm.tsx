@@ -74,6 +74,7 @@ const WaitlistForm = () => {
                     eighthQuestion: "",
                     ninthQuestion: ""
                 });
+                setCountry(null)
                 setSubmit(true);
                 console.log("Done");
                 setLoading(false);
@@ -94,6 +95,7 @@ const WaitlistForm = () => {
                 eighthQuestion: "",
                 ninthQuestion: ""
             });
+            setCountry(null)
             setLoading(false);
         }
     };
