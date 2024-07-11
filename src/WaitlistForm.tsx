@@ -81,7 +81,7 @@ const WaitlistForm = () => {
             if(error.response.data.message){
                 alert(error.response.data.message)
             }else{
-                alert("")
+                alert("Something went wrong")
             }
         }
     };
