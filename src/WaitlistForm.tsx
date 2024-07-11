@@ -65,7 +65,7 @@ const WaitlistForm = () => {
                 age: data.eighthQuestion,
                 subscribe: data.ninthQuestion === 'Yes',
             })
-            if (data.status === 'ok') {
+            if (req.data.status === 'ok') {
                 alert("ok")
             }
 
