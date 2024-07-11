@@ -108,11 +108,11 @@ const WaitlistForm = () => {
         console.log(requestBody);
 
         try {
-            // const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            // });
+            const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
             // Assuming you want to handle success similarly
             setData({
