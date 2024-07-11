@@ -75,7 +75,7 @@ const WaitlistForm = () => {
             console.log("Done");
             setLoading(false);
 
-        } catch (error) {
+        } catch (error: {type: any}) {
             error.response.data.message ? alert(error.response.data.message) : alert("Something went wrong")
             console.error('There was an error!', error);
             setLoading(false);
