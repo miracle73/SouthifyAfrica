@@ -115,10 +115,7 @@ const WaitlistForm = () => {
             // });
             const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, requestBody)
             if (data.status === 'ok') {
-                toast.success(data.message, {
-                    position: 'top-right',
-                })
-                navigate('/admindashboard');
+                console.log("ok")
             }
 
             // Assuming you want to handle success similarly
