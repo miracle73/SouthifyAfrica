@@ -79,7 +79,7 @@ const WaitlistForm = () => {
             console.error('There was an error!', error);
             setLoading(false);
             if(error.response.data.message){
-                alert()
+                alert(error.response.data.message)
             }
         }
     };
