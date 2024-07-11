@@ -17,22 +17,28 @@ import { useLanguageContext } from './LanguageContext';
 import axios from 'axios';
 
 
-
+type CountryType = {
+    name: string;
+    code: string;
+};
 
 
 const WaitlistForm = () => {
-    const [country, setCountry] = useState(null);
+    const [country, setCountry] = useState<CountryType | null>(null);
+    // const [country, setCountry] = useState(null);
     const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
     const { pidgin } = useLanguageContext();
-    const handleSetCountry = (e: any, value: any) => setCountry(value);
+    const handleSetCountry = (e: any, value: any) => {setCountry(value); console.log(e)};
 
     console.log(pidgin)
     const handleSubmit2 = async (event: any) => {
         setLoading(true);
         event.preventDefault();
 
+
+        
         const requestBody = {
             email: data.secondQuestion,
             name: data.firstQuestion,
@@ -40,13 +46,13 @@ const WaitlistForm = () => {
             need: data.fourthQuestion,
             favFeature: data.fifthQuestion,
             awarenessMedium: data.sixthQuestion,
-            country: country.name,
+            country: country ? country.name : "",
             age: data.eighthQuestion,
             subscribe: data.ninthQuestion === 'Yes',
         };
 
         console.log(requestBody);
-        console.log(country.name)
+        console.log( country ? country.name : "")
 
         try {
             // const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
