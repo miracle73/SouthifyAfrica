@@ -32,7 +32,7 @@ const WaitlistForm = () => {
     const handleSubmit2 = async (event: any) => {
         setLoading(true);
         event.preventDefault();
-    
+
         const requestBody = {
             email: data.secondQuestion,
             name: data.firstQuestion,
@@ -56,10 +56,27 @@ const WaitlistForm = () => {
             // });
             const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, requestBody)
             if (data.status === 'ok') {
-                alert("ok")
+                // Assuming you want to handle success similarly
+                setData({
+                    firstQuestion: '',
+                    secondQuestion: '',
+                    thirdQuestion: '',
+                    fourthQuestion: '',
+                    fifthQuestion: '',
+                    sixthQuestion: "",
+                    seventhQuestion: "",
+                    eighthQuestion: "",
+                    ninthQuestion: ""
+                });
+                setSubmit(true);
+                console.log("Done");
+                setLoading(false);
             }
 
-            // Assuming you want to handle success similarly
+
+        } catch (error: any) {
+            error.response.data.message ? alert(error.response.data.message) : alert("Something went wrong")
+            console.error('There was an error!', error);
             setData({
                 firstQuestion: '',
                 secondQuestion: '',
@@ -71,12 +88,6 @@ const WaitlistForm = () => {
                 eighthQuestion: "",
                 ninthQuestion: ""
             });
-            setSubmit(true);
-            console.log("Done");
-            setLoading(false);
-
-        } catch (error) {
-            console.error('There was an error!', error);
             setLoading(false);
         }
     };
