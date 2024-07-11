@@ -14,7 +14,7 @@ import SouthifyLogo from './assets/image/Soothify2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useLanguageContext } from './LanguageContext';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 
@@ -27,78 +27,13 @@ const WaitlistForm = () => {
     const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
     const { pidgin } = useLanguageContext();
     const handleSetCountry = (e: any, value: any) => setCountry(value);
-    // const handleSubmit = (event: any) => {
-    //     event.preventDefault();
-    //     console.log(data);
-    //     console.log(value)
-    //     setData({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" })
-    //     setSubmit(true)
-    //     setValue('')
+
     console.log(pidgin)
-    // };
-    // const handleSubmit3 = async (event: any) => {
-    //     setLoading(true)
-    //     event.preventDefault();
-
-    //     // Construct the body of the request
-    //     const requestBody = {
-    //         email: data.secondQuestion,
-    //         name: data.firstQuestion,
-    //         phone: data.thirdQuestion,
-    //         need: data.fourthQuestion,
-    //         favFeature: data.fifthQuestion,
-    //         awarenessMedium: data.sixthQuestion,
-    //         country: data.seventhQuestion,
-    //         age: data.eighthQuestion,
-    //         subscribe: data.ninthQuestion === 'Yes',
-    //     };
-
-    //     console.log(requestBody)
-
-    //     try {
-    //         const response = await fetch('https://southifyafrica-1.onrender.com/api/user/', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(requestBody),
-    //         });
-
-    //         // if (!response.ok) {
-    //         //     throw new Error(`HTTP error! status: ${response.status}`);
-    //         //     setLoading(false)
-    //         // }
-
-
-    //         setData({
-    //             firstQuestion: '',
-    //             secondQuestion: '',
-    //             thirdQuestion: '',
-    //             fourthQuestion: '',
-    //             fifthQuestion: '',
-    //             sixthQuestion: "",
-    //             seventhQuestion: "",
-    //             eighthQuestion: "",
-    //             ninthQuestion: ""
-    //         });
-    //         setSubmit(true);
-    //         console.log("Done")
-    //         setLoading(false)
-
-
-    //     } catch (error) {
-    //         console.error('There was an error!', error);
-    //         setLoading(false)
-
-    //     }
-    // };
-
-
     const handleSubmit2 = async (event: any) => {
         setLoading(true);
         event.preventDefault();
-
-        // Construct the body of the request
+        console.log(requestBody);
+        console.log(country.name)
         const requestBody = {
             email: data.secondQuestion,
             name: data.firstQuestion,
@@ -106,13 +41,12 @@ const WaitlistForm = () => {
             need: data.fourthQuestion,
             favFeature: data.fifthQuestion,
             awarenessMedium: data.sixthQuestion,
-            country: data.seventhQuestion,
+            country: country.name,
             age: data.eighthQuestion,
             subscribe: data.ninthQuestion === 'Yes',
         };
 
-        console.log(requestBody);
-        console.log(country.name)
+    
 
         try {
             // const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
@@ -120,6 +54,10 @@ const WaitlistForm = () => {
             //         'Content-Type': 'application/json',
             //     },
             // });
+            const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, requestBody)
+            if (data.status === 'ok') {
+                alert("ok")
+            }
 
             // Assuming you want to handle success similarly
             setData({
@@ -206,7 +144,7 @@ const WaitlistForm = () => {
 
                 <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>{pidgin ? 'Wetin you need help with? (Tick all wey apply)' : 'What do you need help with? (Check all that apply)'}</p>
 
-                <div className="flex flex-col min-w-fit pt-5 ">
+                <div className="flex flex-col min-w-fit pt-5 gap-3 md:gap-1">
                     <div className="flex justify-between items-center max-w-fit">
                         <input
                             type="checkbox"
@@ -282,7 +220,7 @@ const WaitlistForm = () => {
                 </div>
                 <p className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px] max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px] font-[600] pt-5'>{pidgin ? ' Which features you like? (Tick all wey apply):' : 'What feature do you like? (Check all that apply)'}</p>
 
-                <div className="flex flex-col min-w-fit pt-5 ">
+                <div className="flex flex-col min-w-fit pt-5  gap-3 md:gap-1">
                     <div className="flex justify-between items-center max-w-fit">
                         <input
                             type="checkbox"
