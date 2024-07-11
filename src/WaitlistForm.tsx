@@ -108,12 +108,19 @@ const WaitlistForm = () => {
         console.log(requestBody);
 
         try {
-            const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            
+            // const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            // });
+            const { data } = await axios.post(`${url}/admin/`, body)
+            if (data.status === 'ok') {
+                dispatch({ type: types.ADMIN_AUTH_SUCCESS, payload: data.data })
+                toast.success(data.message, {
+                    position: 'top-right',
+                })
+                navigate('/admindashboard');
+            }
 
             // Assuming you want to handle success similarly
             setData({
