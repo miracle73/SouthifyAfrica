@@ -10,7 +10,7 @@ import SouthifyLogo from './assets/image/Soothify2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useLanguageContext } from './LanguageContext';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 
