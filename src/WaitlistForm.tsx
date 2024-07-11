@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import { Link } from 'react-router-dom';
+//@ts-ignore
+// @ts-expect-error
+import { CountryDropdown } from "react-country-state-dropdown";
+import "react-country-state-city/dist/react-country-state-city.css";
 // import { ImFacebook } from "react-icons/im";
 import { VscTwitter } from "react-icons/vsc";
 import { FiInstagram } from "react-icons/fi";
@@ -17,10 +21,12 @@ import { useLanguageContext } from './LanguageContext';
 
 
 const WaitlistForm = () => {
+    const [country, setCountry] = useState(null);
     const [loading, setLoading] = useState(false)
     const [submit, setSubmit] = useState(false)
     const [data, setData] = useState({ firstQuestion: '', secondQuestion: '', thirdQuestion: '', fourthQuestion: '', fifthQuestion: '', sixthQuestion: '', seventhQuestion: "", eighthQuestion: "", ninthQuestion: "" });
     const { pidgin } = useLanguageContext();
+    const handleSetCountry = (e: any, value: any) => setCountry(value);
     // const handleSubmit = (event: any) => {
     //     event.preventDefault();
     //     console.log(data);
@@ -106,6 +112,7 @@ const WaitlistForm = () => {
         };
 
         console.log(requestBody);
+        console.log(country.name)
 
         try {
             // const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
@@ -369,15 +376,18 @@ const WaitlistForm = () => {
                 </div>
                 <div className='text-gray-900 text-base max-sm:text-xs font-normal  mt-20'>
                     <label className='text-[#263238] font-[Inter] text-[32px] max-xl:text-[30px] max-lg:text-[25px] max-md:text-[20px]  max-sm:text-[18px] max-xsm:text-[16px] max-xsxl:text-[14px]  font-[600] pt-5'>Country</label>
-                    <div className="w-full flex justify-between items-center mt-5" >
-                        <select name="seventhQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.seventhQuestion} onChange={(e) => { setData({ ...data, seventhQuestion: e.target.value }) }}>
-                            <option value="" disabled selected hidden>Please select</option>
+                    <div className=" justify-between items-start mt-5 w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input " >
+                        {/* <select name="seventhQuestion" className='w-full py-3 px-3  text-[#263238] text-[28px] max-lg:text-[24px] max-md:text-[20px] max-sm:text-[16px]  max-xsm:text-[14px] max-xsxl:text-[12px] font-[400] font-[Inter] bg-[#F5F5F5] pr-3 border border-[#263238] flex flex-col rounded-md gap-6 email-input ' value={data.seventhQuestion} onChange={(e) => { setData({ ...data, seventhQuestion: e.target.value }) }}> */}
+                        {/* <option value="" disabled selected hidden>Please select</option>
                             <option value='Nigeria'>Nigeria</option>
                             <option value='Ghana'>Ghana</option>
                             <option value='Egypt'>Egypt</option>
                             <option value='South africa'>South africa</option>
-                            <option value='Senegal'>Senegal</option>
-                        </select>
+                            <option value='Senegal'>Senegal</option> */}
+
+                        {/* </select> */}
+                        <CountryDropdown clearable value={country} onChange={handleSetCountry}
+                            classes="element" />
                     </div>
 
                 </div>
