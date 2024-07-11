@@ -22,7 +22,7 @@ app.use(fileUpload());
 app.use("/api/user", user_router)
 
 app.use(errorHandler)
-
+console.log(first)
 const PORT = process.env.PORT || 5000;
 app.listen(
     PORT,
