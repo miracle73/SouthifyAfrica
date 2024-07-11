@@ -113,6 +113,7 @@ const WaitlistForm = () => {
                     'Content-Type': 'application/json',
                 },
             });
+            
 
             // Assuming you want to handle success similarly
             setData({
