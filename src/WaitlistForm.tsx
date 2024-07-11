@@ -113,7 +113,7 @@ const WaitlistForm = () => {
             //         'Content-Type': 'application/json',
             //     },
             // });
-            const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, body)
+            const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, requestBody)
             if (data.status === 'ok') {
                 dispatch({ type: types.ADMIN_AUTH_SUCCESS, payload: data.data })
                 toast.success(data.message, {
