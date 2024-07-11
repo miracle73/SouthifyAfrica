@@ -7,7 +7,15 @@ import User from '../models/User.js'
 export const user_signup = asyncHandler(async (req, res, next) => {
     try {
         const {
-            email
+            email,
+            name,
+            phone,
+            need,
+            favFeature,
+            awarenessMedium,
+            country,
+            age,
+            subscribe
         } = req.body
 
 
@@ -17,7 +25,17 @@ export const user_signup = asyncHandler(async (req, res, next) => {
             throw new Error('Sorry, this user already exists')
         }
 
-        const user = await User.create({ email })
+        const user = await User.create({ 
+            email,
+            name,
+            phone,
+            need,
+            favFeature,
+            awarenessMedium,
+            country,
+            age,
+            subscribe
+         })
 
         if (user) {
             res.status(201).json({
