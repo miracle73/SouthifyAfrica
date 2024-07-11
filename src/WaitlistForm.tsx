@@ -80,6 +80,8 @@ const WaitlistForm = () => {
             setLoading(false);
             if(error.response.data.message){
                 alert(error.response.data.message)
+            }else{
+                alert("")
             }
         }
     };
