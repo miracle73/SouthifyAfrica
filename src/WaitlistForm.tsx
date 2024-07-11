@@ -54,18 +54,8 @@ const WaitlistForm = () => {
             //         'Content-Type': 'application/json',
             //     },
             // });
-            const req = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, {
-                email: data.secondQuestion,
-                name: data.firstQuestion,
-                phone: data.thirdQuestion,
-                need: data.fourthQuestion,
-                favFeature: data.fifthQuestion,
-                awarenessMedium: data.sixthQuestion,
-                country: country.name,
-                age: data.eighthQuestion,
-                subscribe: data.ninthQuestion === 'Yes',
-            })
-            if (req.data.status === 'ok') {
+            const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, requestBody)
+            if (data.status === 'ok') {
                 alert("ok")
             }
 
