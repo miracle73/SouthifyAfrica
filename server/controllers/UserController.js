@@ -17,7 +17,7 @@ export const user_signup = asyncHandler(async (req, res, next) => {
             age,
             subscribe
         } = req.body
-
+console.log(req.body)
 
         const userExists = await User.find({ email })
 
