@@ -32,7 +32,7 @@ const WaitlistForm = () => {
     const handleSubmit2 = async (event: any) => {
         setLoading(true);
         event.preventDefault();
-    
+
         const requestBody = {
             email: data.secondQuestion,
             name: data.firstQuestion,
@@ -78,8 +78,7 @@ const WaitlistForm = () => {
         } catch (error) {
             console.error('There was an error!', error);
             setLoading(false);
-           error.response.data.message ? alert(error.response.data.message) : alert("Something went wrong")
-            }
+            error.response.data.message ? alert(error.response.data.message) : alert("Something went wrong")
         }
     };
 
