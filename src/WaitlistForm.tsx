@@ -77,6 +77,17 @@ const WaitlistForm = () => {
         } catch (error: any) {
             error.response.data.message ? alert(error.response.data.message) : alert("Something went wrong")
             console.error('There was an error!', error);
+            setData({
+                firstQuestion: '',
+                secondQuestion: '',
+                thirdQuestion: '',
+                fourthQuestion: '',
+                fifthQuestion: '',
+                sixthQuestion: "",
+                seventhQuestion: "",
+                eighthQuestion: "",
+                ninthQuestion: ""
+            });
             setLoading(false);
         }
     };
