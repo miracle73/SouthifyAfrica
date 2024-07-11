@@ -55,9 +55,9 @@ const WaitlistForm = () => {
             //     },
             // });
             const { data } = await axios.post(`https://southifyafrica-1.onrender.com/api/user/`, requestBody)
-            if (data.status === 'ok') {
-                alert("ok")
-            }
+            // if (data.status === 'ok') {
+            //     alert("ok")
+            // }
 
             // Assuming you want to handle success similarly
             setData({
