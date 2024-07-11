@@ -32,8 +32,7 @@ const WaitlistForm = () => {
     const handleSubmit2 = async (event: any) => {
         setLoading(true);
         event.preventDefault();
-        console.log(requestBody);
-        console.log(country.name)
+    
         const requestBody = {
             email: data.secondQuestion,
             name: data.firstQuestion,
@@ -46,7 +45,8 @@ const WaitlistForm = () => {
             subscribe: data.ninthQuestion === 'Yes',
         };
 
-    
+        console.log(requestBody);
+        console.log(country.name)
 
         try {
             // const response = await axios.post('https://southifyafrica-1.onrender.com/api/user/', requestBody, {
