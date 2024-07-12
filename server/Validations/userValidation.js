@@ -20,7 +20,7 @@ export const wait = (req, res, next) => {
     awarenessMedium: Joi.string().trim(),
     country: Joi.string().trim(),
     age: Joi.string().trim(),
-    subscribe: Joi.boolean().trim()
+    subscribe: Joi.boolean()
   });
   validateRequest(req, next, schema)
 }
