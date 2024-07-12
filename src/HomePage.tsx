@@ -30,7 +30,7 @@ const HomePage = () => {
   const [thirdOpen, setThirdOpen] = useState(false)
   const [fourthOpen, setFourthOpen] = useState(false)
   const [navbar, setNavbar] = useState(false)
-  // const [pidgin, setPidgin] = useState(false)
+
   const [arrow, setArrow] = useState(false)
   const { pidgin, togglePidgin } = useLanguageContext();
   return (
