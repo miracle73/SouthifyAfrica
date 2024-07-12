@@ -1,5 +1,5 @@
 import express from 'express'
-import * as UserValidation from "../Validations/adminValidation.js"
+import * as UserValidation from "../Validations/userValidation.js"
 import { user_signup } from '../controllers/UserController.js'
 
 const router = express.Router()
