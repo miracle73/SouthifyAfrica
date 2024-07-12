@@ -15,12 +15,12 @@ export const wait = (req, res, next) => {
       email: Joi.string().trim(),
             name: Joi.string().trim(),
             phone: Joi.string().trim(),
-            need,
-            favFeature,
-            awarenessMedium,
-            country,
-            age,
-            subscribe
+            need: Joi.string().trim(),
+            favFeature: Joi.string().trim(),
+            awarenessMedium: Joi.string().trim(),
+            country: Joi.string().trim(),
+            age: Joi.string().trim(),
+            subscribe: Joi.boolean().trim()
   });
   validateRequest(req, next, schema)
 }
