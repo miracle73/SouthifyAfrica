@@ -12,7 +12,15 @@ export const wait = (req, res, next) => {
         'string.empty': 'Email cannot be an empty field',
         'any.required': 'Email is a required field',
       }),
-      
+      email,
+            name,
+            phone,
+            need,
+            favFeature,
+            awarenessMedium,
+            country,
+            age,
+            subscribe
   });
   validateRequest(req, next, schema)
 }
