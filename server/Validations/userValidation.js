@@ -12,7 +12,7 @@ export const wait = (req, res, next) => {
         'string.empty': 'Email cannot be an empty field',
         'any.required': 'Email is a required field',
       }),
-
+      
   });
   validateRequest(req, next, schema)
 }
