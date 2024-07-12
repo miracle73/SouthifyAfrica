@@ -12,15 +12,15 @@ export const wait = (req, res, next) => {
         'string.empty': 'Email cannot be an empty field',
         'any.required': 'Email is a required field',
       }),
-      email: Joi.string().trim(),
-            name: Joi.string().trim(),
-            phone: Joi.string().trim(),
-            need: Joi.string().trim(),
-            favFeature: Joi.string().trim(),
-            awarenessMedium: Joi.string().trim(),
-            country: Joi.string().trim(),
-            age: Joi.string().trim(),
-            subscribe: Joi.boolean().trim()
+    email: Joi.string().trim(),
+    name: Joi.string().trim(),
+    phone: Joi.string().trim(),
+    need: Joi.string().trim(),
+    favFeature: Joi.string().trim(),
+    awarenessMedium: Joi.string().trim(),
+    country: Joi.string().trim(),
+    age: Joi.string().trim(),
+    subscribe: Joi.boolean().trim()
   });
   validateRequest(req, next, schema)
 }
